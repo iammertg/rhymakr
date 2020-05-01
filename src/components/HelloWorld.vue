@@ -30,7 +30,7 @@ export default {
         if (this.results.length > 0) {
           this.results = [];
         }
-        if (res.data && res.data.length >= 1) {
+        if (resultsArr && resultsArr.length >= 1) {
           for (let item of resultsArr) {
             this.results.push(item.word);
           }
