@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div class="home">
     <HelloWorld></HelloWorld>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '@/components/HelloWorld.vue';
 export default {
-  name: "Home",
+  name: 'Home',
   components: { HelloWorld },
 };
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss">
+.home {
+  width: 100%;
+  height: 100vh;
+}
+</style>

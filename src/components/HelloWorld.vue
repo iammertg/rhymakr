@@ -1,45 +1,41 @@
 <template>
-  <div class="holder-wrapper">
-    <div class="holder">
-      <div class="input-holder">
-        <input type="text" class="input" v-model="searchedText" />
-        <button @click="getRhyme(searchedText)">Click</button>
-      </div>
-      <div class="title">{{ searchedText }} rhymes with</div>
-      <div class="result-holder">
-        <div class="result" v-for="item in results" :key="item">
-          <p>{{ item }}</p>
-        </div>
+  <div class="holder">
+    <div class="input-holder">
+      <input type="text" class="input" v-model="searchedText" />
+      <button @click="getRhyme(searchedText)">Click</button>
+    </div>
+    <div class="title">{{ searchedText }} rhymes with</div>
+    <div class="result-holder">
+      <div class="result" v-for="item in results" :key="item">
+        <p>{{ item }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   data() {
     return {
-      searchedText: "",
+      searchedText: '',
       results: [],
     };
   },
   methods: {
     getRhyme(word) {
-      axios
-        .get(`https://api.datamuse.com/words?rel_rhy=${word}`)
-        .then((res) => {
-          const resultsArr = res.data;
-          if (this.results.length > 0) {
-            this.results = [];
+      axios.get(`https://api.datamuse.com/words?rel_rhy=${word}`).then(res => {
+        const resultsArr = res.data;
+        if (this.results.length > 0) {
+          this.results = [];
+        }
+        if (res.data && res.data.length >= 1) {
+          for (let item of resultsArr) {
+            this.results.push(item.word);
           }
-          if (res.data && res.data.length >= 1) {
-            for (let item of resultsArr) {
-              this.results.push(item.word);
-            }
-          }
-        });
+        }
+      });
     },
   },
 };
@@ -47,11 +43,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.holder-wrapper {
+.holder {
   width: 100%;
   height: 100vh;
-}
-.holder {
   display: flex;
   flex-direction: column;
   align-items: center;

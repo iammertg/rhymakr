@@ -1,3 +1,12 @@
 module.exports = {
-  publicPath: "/rhymakr/",
+  publicPath: '/rhymakr/',
+  css: {
+    loaderOptions: {
+      scss: {
+        prependData: `
+        @import "@/styles/global.scss";
+        `,
+      },
+    },
+  },
 };
