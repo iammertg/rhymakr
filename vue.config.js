@@ -1,5 +1,4 @@
 module.exports = {
-  publicPath: '/rhymakr/',
   css: {
     loaderOptions: {
       scss: {
