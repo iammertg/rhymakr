@@ -1,5 +1,5 @@
 module.exports = {
-  semi: true,
+  /*semi: true,
   tabWidth: 2,
   singleQuote: true,
   bracketSpacing: true,
@@ -8,5 +8,5 @@ module.exports = {
   endOfLine: 'auto',
   trailingComma: 'all',
   useTabs: false,
-  'arrow-parens': [2, 'always'],
+  'arrow-parens': [2, 'always'],*/
 };
