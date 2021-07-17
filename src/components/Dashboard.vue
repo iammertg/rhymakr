@@ -14,9 +14,13 @@
         </div>
       </div>
 
-      <div>
+      <div class="dashboard__selected-words-wrapper">
         <div>SELECTED WORDS</div>
-        {{ selectedWords }}
+        <div class="dashboard__selected-words-area">
+          <div v-for="item in selectedWords" :key="item" >
+            <div  class="dashboard__selected-word">{{ item }}</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="dashboard__right">
@@ -81,6 +85,8 @@ export default {
         if (window.getSelection().toString().length) {
           let exactText = window.getSelection().toString();
           this.searchedText = exactText;
+
+          this.getRhyme(this.searchedText)
         }
       });
     }
@@ -145,6 +151,30 @@ export default {
     height: 100%;
     max-width: 500px;
     max-height: 700px;
+  }
+
+  &__selected-words-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__selected-words-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 15px;
+  }
+
+  &__selected-word{
+    border-radius: 8px;
+    background-color: white;
+    width: 100px;
+    margin: 0 15px;
+    padding: 10px 20px;
   }
 }
 </style>
